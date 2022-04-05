@@ -39,7 +39,7 @@ public interface DiscountsApplier {
         for (int i = 0; i < prices.length; i++){
             value = prices[i];
 
-            if (i >= offset && i <= offset + applyLength) {
+            if (i >= offset && i <= offset + applyLength - 1) {
                 value -= (int) Math.floor((float) (value) / 100 * discount);
 
                 Log.d("zaycev.net.absolutely", "index = " + i +

@@ -17,21 +17,6 @@ public class MainActivity extends AppCompatActivity implements DiscountsApplier 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sharedPreferencesFile = getPackageName();
-        sharedPreferences = getSharedPreferences(sharedPreferencesFile, MODE_PRIVATE);
-
-        int launchedTimes = sharedPreferences.getInt("launchAmounts", 1);
-
-        SharedPreferences.Editor preferencesEditor = sharedPreferences.edit();
-        preferencesEditor.putInt("launchAmounts",
-                launchedTimes + 1);
-        preferencesEditor.apply();
-
-        if (launchedTimes >= 3) {
-            Toast.makeText(this, "App launched " + launchedTimes + " times",
-                    Toast.LENGTH_SHORT).show();
-        }
-
         findViewById(R.id.btn_applyDiscounts).setOnClickListener(view -> launchDiscounts());
     }
 
